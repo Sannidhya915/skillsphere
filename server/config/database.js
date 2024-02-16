@@ -3,7 +3,7 @@ require("dotenv").config();
 
 // const { MONGODB_URL } = process.env;
 
-const MONGODB_URL  = "mongodb+srv://mrinal:mrinal121@similize.cy93hwe.mongodb.net/";
+const MONGODB_URL  = "mongodb+srv://teamskillsphere:v7Pe9C85C4Y8ahT8@skillsphere.stnrdkl.mongodb.net/SkillSphere";
 
 exports.connect = () => {
 	mongoose
