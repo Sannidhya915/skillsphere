@@ -19,6 +19,9 @@ const PORT = process.env.PORT || 4000;
 // Loading environment variables from .env file
 dotenv.config();
 
+// console.log(process.env.MAIL_HOST);
+
+
 // Connecting to database
 database.connect();
  
