@@ -50,12 +50,23 @@ function SignupForm() {
       accountType,
     }
 
+    // ***********************CHANGELOG**********************************
+    
     // Setting signup data to state
     // To be used after otp verification
+    
     dispatch(setSignupData(signupData))
+    
     // Send OTP to user for verification
     dispatch(sendOtp(formData.email, navigate))
+    
+    
+    // ***********************END**********************************
+    
+    // console.log(signupData);
 
+    
+    
     // Reset
     setFormData({
       firstName: "",
