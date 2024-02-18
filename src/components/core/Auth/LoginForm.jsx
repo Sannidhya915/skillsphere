@@ -35,7 +35,7 @@ function LoginForm() {
       className="mt-6 flex w-full flex-col gap-y-4"
     >
       <label className="w-full">
-        <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+        <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-white">
           Email Address <sup className="text-pink-200">*</sup>
         </p>
         <input
@@ -49,7 +49,7 @@ function LoginForm() {
         />
       </label>
       <label className="relative">
-        <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+        <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-white">
           Password <sup className="text-pink-200">*</sup>
         </p>
         <input
@@ -72,14 +72,14 @@ function LoginForm() {
           )}
         </span>
         <Link to="/forgot-password">
-          <p className="mt-1 ml-auto max-w-max text-xs text-blue-100">
+          <p className="mt-1 ml-auto max-w-max text-xs text-[#FFE7A0]">
             Forgot Password
           </p>
         </Link>
       </label>
       <button
         type="submit"
-        className="mt-6 rounded-[8px] bg-yellow-50 py-[8px] px-[12px] font-medium text-richblack-900"
+        className="mt-6 rounded-[8px] bg-gradient-to-b from-[#DA22FF] via-[#B42CF5] to-[#9733EE] py-[8px] py-[8px] px-[12px] font-medium text-richblack-900"
       >
         Sign In
       </button>

@@ -77,10 +77,10 @@ details > summary::-webkit-details-marker {
   top: calc(50% - 257.05px / 2 - 47.47px);
   border-radius: 100%;
   background: linear-gradient(
-    118.19deg,
-    #1fa2ff -3.62%,
-    #12d8fa 50.44%,
-    #a6ffcb 104.51%
+    45deg,
+    #DA22FF -3.62%,
+    #DA22FF 50.44%,
+    #9733EE 104.51%
   );
   opacity: 0.2;
   filter: blur(34px);
@@ -236,10 +236,10 @@ details > summary::-webkit-details-marker {
   @apply cursor-pointer rounded-md bg-richblack-800 px-[20px] py-[8px] font-semibold text-richblack-5;
 }
 .lable-style {
-  @apply text-[14px] text-richblack-5;
+  @apply text-[14px] text-white;
 }
 .form-style {
-  @apply rounded-lg bg-richblack-700 p-3 text-[16px] leading-[24px] text-richblack-5 shadow-[0_1px_0_0] shadow-white/50 placeholder:text-richblack-400 focus:outline-none;
+  @apply rounded-lg bg-[#272727] p-3 text-[16px] leading-[24px] text-white shadow-[0_1px_0_0] shadow-white/50 placeholder:text-richblack-400 focus:outline-none;
 }
 .section_heading {
   @apply text-2xl font-bold text-richblack-5 lg:text-4xl;
