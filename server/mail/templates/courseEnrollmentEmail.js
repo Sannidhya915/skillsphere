@@ -67,7 +67,7 @@ exports.courseEnrollmentEmail = (courseName, name) => {
   
   <body>
       <div class="container">
-          <a href="skillsphere_url_here"><img class="logo" src="https://res.cloudinary.com/dxnjy5rel/image/upload/v1708262928/logo_avoj4v.png"
+          <a href="skillsphere_url_here"><img class="logo" src="https://res.cloudinary.com/dxnjy5rel/image/upload/v1708267554/logo_lynjqb.png"
                   alt="SkillSphere Logo"></a>
           <div class="message">Course Registration Confirmation</div>
           <div class="body">

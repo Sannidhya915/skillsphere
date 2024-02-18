@@ -67,7 +67,7 @@ const otpTemplate = (otp) => {
 	<body>
 		<div class="container">
 			<a href="skillsphere_url_here"><img class="logo"
-					src="https://res.cloudinary.com/dxnjy5rel/image/upload/v1708262928/logo_avoj4v.png" alt="SkillSphere Logo"></a>
+					src="https://res.cloudinary.com/dxnjy5rel/image/upload/v1708267554/logo_lynjqb.png" alt="SkillSphere Logo"></a>
 			<div class="message">OTP Verification Email</div>
 			<div class="body">
 				<p>Dear User,</p>
