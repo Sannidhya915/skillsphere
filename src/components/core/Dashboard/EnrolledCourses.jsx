@@ -40,12 +40,12 @@ export default function EnrolledCourses() {
           <div className="spinner"></div>
         </div>
       ) : !enrolledCourses.length ? (
-        <p className="grid h-[10vh] w-full place-content-center text-richblack-5">
+        <p className="grid h-[10vh] w-full place-content-center text-white">
           You have not enrolled in any course yet.
           {/* TODO: Modify this Empty State */}
         </p>
       ) : (
-        <div className="my-8 text-richblack-5">
+        <div className="my-8 text-white">
           {/* Headings */}
           <div className="flex rounded-t-lg bg-richblack-500 ">
             <p className="w-[45%] px-5 py-3">Course Name</p>
