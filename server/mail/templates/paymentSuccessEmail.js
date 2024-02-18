@@ -67,7 +67,7 @@ exports.paymentSuccessEmail = (name, amount, orderId, paymentId) => {
     
     <body>
         <div class="container">
-            <a href="https://skillsphere-edtech-project.vercel.app"><img class="logo" src="https://i.ibb.co/7Xyj3PC/logo.png"
+            <a href="skillsphere_url_here"><img class="logo" src="https://asset.cloudinary.com/dxnjy5rel/a395f15e1295497564b871128b14cd80"
                     alt="SkillSphere Logo"></a>
             <div class="message">Course Payment Confirmation</div>
             <div class="body">
