@@ -79,7 +79,7 @@ function LoginForm() {
       </label>
       <button
         type="submit"
-        className="mt-6 rounded-[8px] bg-gradient-to-b from-[#DA22FF] via-[#B42CF5] to-[#9733EE] lslpy-[8px] px-[12px] font-medium text-richblack-900"
+        className="mt-6 rounded-[8px] bg-gradient-to-b from-[#DA22FF] via-[#B42CF5] to-[#9733EE] py-[8px] px-[12px] font-medium text-richblack-900"
       >
         Sign In
       </button>
