@@ -37,10 +37,12 @@ export function sendOtp(email, navigate) {
 
       console.log("SENDOTP API RESPONSE............", response)
 
-      console.log(response.data.success)
+      // console.log(response.data.success)
+      console.log(response.success)
 
       if (!response.data.success) {
-        throw new Error(response.data.message)
+        // throw new Error(response.data.message)
+        throw new Error(response.message)
       }
 
       toast.success("OTP Sent Successfully")
