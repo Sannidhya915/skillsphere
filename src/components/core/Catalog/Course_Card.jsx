@@ -35,7 +35,7 @@ function Course_Card({ course, Height }) {
             </p>
             <div className="flex items-center gap-2">
               <span className="text-yellow-5">{avgReviewCount || 0}</span>
-              {/* <ReactStars
+              <ReactStars
                 count={5}
                 value={avgReviewCount || 0}
                 size={20}
@@ -43,7 +43,7 @@ function Course_Card({ course, Height }) {
                 activeColor="#ffd700"
                 emptyIcon={<FaRegStar />}
                 fullIcon={<FaStar />}
-              /> */}
+              />
               <RatingStars Review_Count={avgReviewCount} />
               <span className="text-richblack-400">
                 {course?.ratingAndReviews?.length} Ratings
