@@ -1,5 +1,6 @@
 {
 	"name": "skillsphere-backend",
+	"proxy": "http://localhost:4000",
 	"version": "1.0.0",
 	"description": "skillsphere-backend",
 	"main": "index.js",
