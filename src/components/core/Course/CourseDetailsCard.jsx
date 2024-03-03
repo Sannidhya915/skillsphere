@@ -57,7 +57,7 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
   return (
     <>
       <div
-        className={`flex flex-col gap-4 rounded-md bg-richblack-700 p-4 text-richblack-5`}
+        className={`flex flex-col gap-4 rounded-md bg-richblack-175 p-4 text-richblack-5`}
       >
         {/* Course Image */}
         <img
@@ -99,7 +99,7 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
             <p className={`my-2 text-xl font-semibold `}>
               This Course Includes :
             </p>
-            <div className="flex flex-col gap-3 text-sm text-caribbeangreen-100">
+            <div className="flex flex-col gap-3 text-sm text-yellow-50">
               {course?.instructions?.map((item, i) => {
                 return (
                   <p className={`flex gap-2`} key={i}>

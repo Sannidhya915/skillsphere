@@ -64,8 +64,8 @@ export default function Upload({
       </label>
       <div
         className={`${
-          isDragActive ? "bg-richblack-600" : "bg-richblack-700"
-        } flex min-h-[250px] cursor-pointer items-center justify-center rounded-md border-2 border-dotted border-richblack-500`}
+          isDragActive ? "bg-richblack-600" : "bg-richblack-150"
+        } flex min-h-[250px] cursor-pointer items-center justify-center rounded-md border-2 border-dotted border-richblack-100`}
       >
         {previewSource ? (
           <div className="flex w-full flex-col p-6">

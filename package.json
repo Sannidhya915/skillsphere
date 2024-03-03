@@ -44,7 +44,9 @@
     "dev": "concurrently -n \"client,server\" -c \"bgBlue,bgYellow\" \"npm start\" \"npm run server\""
   },
   "eslintConfig": {
-    "plugins": ["jsx-a11y"],
+    "plugins": [
+      "jsx-a11y"
+    ],
     "extends": [
       "react-app",
       "react-app/jest"
@@ -68,7 +70,7 @@
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.3.0",
-    "tailwindcss": "^3.2.7"
+    "tailwindcss": "^3.4.1"
   },
   "main": "prettier.config.js",
   "author": "",
