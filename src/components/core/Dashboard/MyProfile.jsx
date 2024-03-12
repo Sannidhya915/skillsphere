@@ -76,19 +76,19 @@ export default function MyProfile() {
         <div className="flex max-w-[500px] justify-between ">
           <div className="flex flex-col gap-y-5">
             <div>
-              <p className="mb-2 text-sm text-[#424854]">First Name</p>
+              <p className="mb-2 text-sm text-[#A8A196]">First Name</p>
               <p className="text-sm font-medium text-white">
                 {user?.firstName}
               </p>
             </div>
             <div>
-              <p className="mb-2 text-sm text-[#424854]">Email</p>
+              <p className="mb-2 text-sm text-[#A8A196]">Email</p>
               <p className="text-sm font-medium text-white">
                 {user?.email}
               </p>
             </div>
             <div>
-              <p className="mb-2 text-sm text-[#424854]">Gender</p>
+              <p className="mb-2 text-sm text-[#A8A196]">Gender</p>
               <p className="text-sm font-medium text-white">
                 {user?.additionalDetails?.gender ?? "Add Gender"}
               </p>
@@ -96,19 +96,19 @@ export default function MyProfile() {
           </div>
           <div className="flex flex-col gap-y-5">
             <div>
-              <p className="mb-2 text-sm text-[#424854]">Last Name</p>
+              <p className="mb-2 text-sm text-[#A8A196]">Last Name</p>
               <p className="text-sm font-medium text-white">
                 {user?.lastName}
               </p>
             </div>
             <div>
-              <p className="mb-2 text-sm text-[#424854]">Phone Number</p>
+              <p className="mb-2 text-sm text-[#A8A196]">Phone Number</p>
               <p className="text-sm font-medium text-white">
                 {user?.additionalDetails?.contactNumber ?? "Add Contact Number"}
               </p>
             </div>
             <div>
-              <p className="mb-2 text-sm text-[#424854]">Date Of Birth</p>
+              <p className="mb-2 text-sm text-[#A8A196]">Date Of Birth</p>
               <p className="text-sm font-medium text-white">
                 {formattedDate(user?.additionalDetails?.dateOfBirth) ??
                   "Add Date Of Birth"}
