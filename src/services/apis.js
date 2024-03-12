@@ -1,5 +1,5 @@
-// const dotenv = require("dotenv")
-// dotenv.config();
+const dotenv = require("dotenv")
+dotenv.config();
 
 const BASE_URL = process.env.REACT_APP_BASE_URL
 
