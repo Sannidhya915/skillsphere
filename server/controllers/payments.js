@@ -87,10 +87,7 @@ exports.verifyPayment = async (req, res) => {
     !courses ||
     !userId
   ) {
-    // return res.status(200).json({ success: false, message: "Payment Failed" })
-    // Overriding payment status for prototype branch for testing
-    await enrollStudents(courses, userId, res)
-    return res.status(200).json({ success: true, message: "Payment Verified" })
+    return res.status(200).json({ success: false, message: "Payment Failed" })
   }
 
   let body = razorpay_order_id + "|" + razorpay_payment_id
@@ -105,11 +102,7 @@ exports.verifyPayment = async (req, res) => {
     return res.status(200).json({ success: true, message: "Payment Verified" })
   }
 
-  // return res.status(200).json({ success: false, message: "Payment Failed" })
-
-  // Overriding payment status for prototype branch for testing
-  await enrollStudents(courses, userId, res)
-  return res.status(200).json({ success: true, message: "Payment Verified" })
+  return res.status(200).json({ success: false, message: "Payment Failed" })
 }
 
 // Send Payment Success Email
