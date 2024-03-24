@@ -98,6 +98,12 @@ export async function BuyCourse(
 
 // Verify the Payment
 async function verifyPayment(bodyData, token, navigate, dispatch) {
+  console.log("---------My check here--------")
+  console.log(bodyData)
+  console.log(token)
+  console.log(navigate)
+  console.log(dispatch)
+  console.log("---------My check end--------")
   const toastId = toast.loading("Verifying Payment...")
   dispatch(setPaymentLoading(true))
   try {
