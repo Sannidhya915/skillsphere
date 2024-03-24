@@ -73,6 +73,7 @@ exports.capturePayment = async (req, res) => {
 
 // verify the payment
 exports.verifyPayment = async (req, res) => {
+  console.log("Req DATA : ", req.body)
   const razorpay_order_id = req.body?.razorpay_order_id
   const razorpay_payment_id = req.body?.razorpay_payment_id
   const razorpay_signature = req.body?.razorpay_signature
@@ -91,11 +92,13 @@ exports.verifyPayment = async (req, res) => {
   }
 
   let body = razorpay_order_id + "|" + razorpay_payment_id
-
+  console.log("Body :-", body)
   const expectedSignature = crypto
     .createHmac("sha256", process.env.RAZORPAY_SECRET)
     .update(body.toString())
     .digest("hex")
+
+  console.log("Expected Signature:", expectedSignature)
 
   if (expectedSignature === razorpay_signature) {
     await enrollStudents(courses, userId, res)
