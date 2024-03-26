@@ -1,52 +1,71 @@
-import { useEffect, useState } from "react"
-import { AiOutlineMenu, AiOutlineShoppingCart } from "react-icons/ai"
-import { BsChevronDown } from "react-icons/bs"
-// import { useSelector } from "react-redux"
-import { Link, matchPath, useLocation } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom"
-import {VscSignOut } from "react-icons/vsc"
-
-
-import logo from "../../assets/Logo/Group 9.png"
-import { NavbarLinks } from "../../data/navbar-links"
-import { apiConnector } from "../../services/apiConnector"
-import { categories } from "../../services/apis"
-import { ACCOUNT_TYPE } from "../../utils/constants"
-import ProfileDropdown from "../core/Auth/ProfileDropdown"
-import { logout } from "../../services/operations/authAPI"
-
-// CSS styles for the hamburger menu
+import React, { useEffect, useState, useRef } from "react";
+import { AiOutlineMenu, AiOutlineShoppingCart } from "react-icons/ai";
+import { BsChevronDown } from "react-icons/bs";
+import { Link, matchPath, useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { VscSignOut } from "react-icons/vsc";
+import logo from "../../assets/Logo/Group 9.png";
+import { NavbarLinks } from "../../data/navbar-links";
+import { apiConnector } from "../../services/apiConnector";
+import { categories } from "../../services/apis";
+import { ACCOUNT_TYPE } from "../../utils/constants";
+import ProfileDropdown from "../core/Auth/ProfileDropdown";
+import { logout } from "../../services/operations/authAPI";
 import "./hamburger-menu.css";
 
 function Navbar() {
-  const { token } = useSelector((state) => state.auth)
-  const { user } = useSelector((state) => state.profile)
-  const { totalItems } = useSelector((state) => state.cart)
-  const location = useLocation()
-  const dispatch = useDispatch()
- const navigate = useNavigate()
+  const { token } = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.profile);
+  const { totalItems } = useSelector((state) => state.cart);
+  const location = useLocation();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const [subLinks, setSubLinks] = useState([])
-  const [loading, setLoading] = useState(false)
-  const [open, setOpen] = useState(false)
+  const [subLinks, setSubLinks] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  const menuToggleRef = useRef(null);
 
   useEffect(() => {
-    ;(async () => {
-      setLoading(true)
-      try {
-        const res = await apiConnector("GET", categories.CATEGORIES_API)
-        setSubLinks(res.data.data)
-      } catch (error) {
-        console.log("Could not fetch Categories.", error)
+    const handleOutsideClick = (event) => {
+      if (
+        open &&
+        menuToggleRef.current &&
+        !menuToggleRef.current.contains(event.target)
+      ) {
+        setOpen(false);
       }
-      setLoading(false)
-    })()
-  }, [])
+    };
+
+    document.body.addEventListener("click", handleOutsideClick);
+
+    return () => {
+      document.body.removeEventListener("click", handleOutsideClick);
+    };
+  }, [open]);
+
+  useEffect(() => {
+    (async () => {
+      setLoading(true);
+      try {
+        const res = await apiConnector("GET", categories.CATEGORIES_API);
+        setSubLinks(res.data.data);
+      } catch (error) {
+        console.log("Could not fetch Categories.", error);
+      }
+      setLoading(false);
+    })();
+  }, []);
 
   const matchRoute = (route) => {
-    return matchPath({ path: route }, location.pathname)
-  }
+    return matchPath({ path: route }, location.pathname);
+  };
+
+  const handleLinkClick = () => {
+    setOpen(false); // Close the menu when a link is clicked
+  };
 
   return (
     <div
@@ -54,71 +73,58 @@ function Navbar() {
         location.pathname !== "/" ? "bg-[#272727]" : ""
       } transition-all duration-200`}
     >
-
-          {/* Hamburger Menu */}
-        <div className="block md:hidden">
-           <div id="menuToggle">
-   
-        <input type="checkbox" />
-    
-           <span></span>
-           <span></span>
+      {/* Hamburger Menu */}
+      <div className="block md:hidden" ref={menuToggleRef}>
+        <div id="menuToggle">
+          <input type="checkbox" checked={open} onChange={() => setOpen(!open)} />
           <span></span>
-    
- 
-           <ul id="menu">
-              {NavbarLinks.map((link, index) => (
-                <li key={index}>
-                  <Link to={link.path}>{link.title}</Link>
-                </li>
-                
-              ))}
-
-           <li>
-            {token === null ? (
-  <Link to="/login" >
-    <button className="text-[22px] rounded-[8px] h-[30%] w-[70%] border border-[#333538] bg-[#303030] px-[12px] py-[8px] text-white hover:text-[#DA22FF]">
-      Log in
-    </button>
-  </Link>
-) : (
-  <div
-            onClick={() => {
-              dispatch(logout(navigate))
-              setOpen(false)
-            }}
-            className="flex w-full items-center gap-x-1 text-[22px]  text-white hover:bg- hover:text-[tomato]"
-          >
-            <VscSignOut className="text-lg" />
-            Logout
-          </div>
-)}
-            </li> 
-              
-              <li>
-                {token === null && (
-            <Link to="/signup">
-              <button className="text-[22px] h-[30%] w-[70%]  rounded-[8px] border border-[#333538] bg-[#303030] px-[12px] py-[8px] text-white hover:text-[#DA22FF]">
-                Sign up
-              </button>
-            </Link>
-          )}
+          <span></span>
+          <span></span>
+          <ul id="menu">
+            {NavbarLinks.map((link, index) => (
+              <li key={index}>
+                <Link to={link.path} onClick={handleLinkClick}>{link.title}</Link>
+              </li>
+            ))}
+            <li>
+              {token === null ? (
+                <Link to="/login" onClick={handleLinkClick}>
+                  Log in
+                </Link>
+              ) : (
+                <div
+                  onClick={() => {
+                    dispatch(logout(navigate));
+                    setOpen(false);
+                  }}
+                  className="flex w-full items-center gap-x-1 text-[22px]  text-white hover:bg- hover:text-[tomato]"
+                >
+                  <VscSignOut className="text-lg" />
+                  Logout
+                </div>
+              )}
             </li>
-
-            </ul>
-          </div>
+            <li>
+              {token === null && (
+                <Link to="/signup" onClick={handleLinkClick}>
+                  Sign up
+                </Link>
+              )}
+            </li>
+          </ul>
         </div>
-
-        
-        <div className="flex w-11/12 max-w-maxContent items-center justify-between max-md:justify-center  ">
-        {/* Logo */}
-      
-          <Link to="/">
-          <img src={logo} alt="Logo" width={160} height={32} loading="lazy" />
+      </div>
+      {/* Logo */}
+      <div className="flex w-11/12 max-w-maxContent items-center justify-between max-md:justify-center">
+        <Link to="/">
+          <img
+            src={logo}
+            alt="Logo"
+            width={160}
+            height={32}
+            loading="lazy"
+          />
         </Link>
-       
-        
-      
         {/* Navigation links */}
         <nav className="hidden md:block">
           <ul className="flex gap-x-6 text-richblack-25">
@@ -152,6 +158,7 @@ function Navbar() {
                                     .toLowerCase()}`}
                                   className="rounded-lg bg-transparent py-4 pl-4 hover:bg-richblack-175"
                                   key={i}
+                                  onClick={handleLinkClick}
                                 >
                                   <p>{subLink.name}</p>
                                 </Link>
@@ -164,7 +171,7 @@ function Navbar() {
                     </div>
                   </>
                 ) : (
-                  <Link to={link?.path}>
+                  <Link to={link?.path} onClick={handleLinkClick}>
                     <p
                       className={`${
                         matchRoute(link?.path)
@@ -208,12 +215,9 @@ function Navbar() {
           )}
           {token !== null && <ProfileDropdown />}
         </div>
-        
-        
-       
       </div>
     </div>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;
