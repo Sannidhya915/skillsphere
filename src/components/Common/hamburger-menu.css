@@ -119,8 +119,8 @@ body {
  * at the top left of the screen
  */
 #menu {
-    position: fixed;
-    height: 110vh;
+    position: absolute;
+    height: 80vh;
     width: 300px;
     margin: -100px 0 0 -50px;
     padding: 50px;
