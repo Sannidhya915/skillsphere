@@ -42,4 +42,11 @@ export const sidebarLinks = [
     type: ACCOUNT_TYPE.STUDENT,
     icon: "VscArchive",
   },
+  {
+    id: 8,
+    name: "QuizWhiz",
+    path: "http://localhost:3000",
+    type: ACCOUNT_TYPE.STUDENT,
+    icon: "VscNote",
+  },
 ]
